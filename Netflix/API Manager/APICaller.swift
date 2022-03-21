@@ -8,15 +8,15 @@
 import Foundation
 
 struct Constants{
-    static let API_KEY = "34b8226969614f1b92c4be3583ce7569"
+    static let API_KEY = "API_KEY_HERE"
     static let BASE_URL = "https://api.themoviedb.org"
-    static let TRENDING_MOVIES_URL = "https://api.themoviedb.org/3/trending/movie/day?api_key=34b8226969614f1b92c4be3583ce7569"
-    static let TRENDING_TV_URL = "https://api.themoviedb.org/3/trending/tv/day?api_key=34b8226969614f1b92c4be3583ce7569"
-    static let UPCOMING_MOVIES = "https://api.themoviedb.org/3/movie/upcoming?api_key=34b8226969614f1b92c4be3583ce7569&language=en-US&page=1"
-    static let POPULAR_MOVIES = "https://api.themoviedb.org/3/movie/popular?api_key=34b8226969614f1b92c4be3583ce7569&language=en-US&page=1"
-    static let TOP_RATED = "https://api.themoviedb.org/3/movie/top_rated?api_key=34b8226969614f1b92c4be3583ce7569&language=en-US&page=1"
-    static let MOVIE_SEARCH = "https://api.themoviedb.org/3/discover/movie?api_key=34b8226969614f1b92c4be3583ce7569&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate"
-    static let YOUTUBE_API_KEY = "AIzaSyD3LI2OmXq9IgwMOLB3eSqlZZLrlnhgcUQ"
+    static let TRENDING_MOVIES_URL = "https://api.themoviedb.org/3/trending/movie/day?api_key=\(API_KEY)"
+    static let TRENDING_TV_URL = "https://api.themoviedb.org/3/trending/tv/day?api_key=\(API_KEY)"
+    static let UPCOMING_MOVIES = "https://api.themoviedb.org/3/movie/upcoming?api_key=\(API_KEY)&language=en-US&page=1"
+    static let POPULAR_MOVIES = "https://api.themoviedb.org/3/movie/popular?api_key=\(API_KEY)&language=en-US&page=1"
+    static let TOP_RATED = "https://api.themoviedb.org/3/movie/top_rated?api_key=\(API_KEY)&language=en-US&page=1"
+    static let MOVIE_SEARCH = "https://api.themoviedb.org/3/discover/movie?api_key=\(API_KEY)&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate"
+    static let YOUTUBE_API_KEY = "YOUTUBE_API_KEY_HERE"
 }
 
 
@@ -146,7 +146,7 @@ class APICaller{
     func search(Query: String,completion:@escaping([Title]?,Error? )->Void){
         guard let Query = Query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {return }
         
-        guard let searchURL = URL(string: "https://api.themoviedb.org/3/search/movie?api_key=34b8226969614f1b92c4be3583ce7569&query=\(Query)") else {return }
+        guard let searchURL = URL(string: "https://api.themoviedb.org/3/search/movie?api_key=\(API_KEY)&query=\(Query)") else {return }
         
         let session = URLSession(configuration: .default)
         
